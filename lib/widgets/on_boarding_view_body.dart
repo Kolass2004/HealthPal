@@ -5,6 +5,7 @@ import 'package:health_pal/utils/app_styles.dart';
 import 'package:health_pal/utils/assets.dart';
 import 'package:health_pal/widgets/custom_button.dart';
 import 'package:health_pal/widgets/on_boarding_widget.dart';
+import 'package:health_pal/widgets/tapper.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
@@ -98,11 +99,13 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               height: 24,
             ),
             Center(
-              child: Ink(
-                child: InkWell(
-                  onTap: () {
-                    pageController.jumpToPage(2);
-                  },
+              child: Tapper(
+                onTap: () {
+                  pageController.jumpToPage(2);
+                },
+                borderRadius: BorderRadius.circular(18),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Text(
                     "Skip",
                     style: Appstyles.styleRegular14.copyWith(

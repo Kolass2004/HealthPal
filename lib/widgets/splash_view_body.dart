@@ -29,7 +29,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
     // Delay of 3 seconds before navigating to the next page
     Future.delayed(const Duration(seconds: 3), () {
-      GoRouter.of(context).pushReplacement(AppRouter.onBoardingView);
+      GoRouter.of(context).go(AppRouter.onBoardingView);
     });
   }
 
