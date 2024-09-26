@@ -15,4 +15,6 @@ abstract class AppColors {
   static const grey700 = Color(0xff374151);
   static const grey800 = Color(0xff1F2A37);
   static const grey900 = Color(0xff111928);
+
+  static const logoTextColor = Color(0xffCBCBCB);
 }

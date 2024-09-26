@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
 import 'package:health_pal/utils/constants.dart';
 
 abstract class Appstyles {
@@ -9,7 +10,7 @@ abstract class Appstyles {
     fontFamily: fontFamily,
   );
 
-   static TextStyle styleMedium14 = TextStyle(
+  static TextStyle styleMedium14 = TextStyle(
     fontSize: getResponsiveFontSize(fontsize: 14),
     fontWeight: FontWeight.w500,
     fontFamily: fontFamily,
@@ -21,19 +22,19 @@ abstract class Appstyles {
     fontFamily: fontFamily,
   );
 
-   static TextStyle styleBold18 = TextStyle(
+  static TextStyle styleBold18 = TextStyle(
     fontSize: getResponsiveFontSize(fontsize: 18),
     fontWeight: FontWeight.bold,
     fontFamily: fontFamily,
   );
 
-   static TextStyle styleMedium16 = TextStyle(
+  static TextStyle styleMedium16 = TextStyle(
     fontSize: getResponsiveFontSize(fontsize: 16),
     fontWeight: FontWeight.w500,
     fontFamily: fontFamily,
   );
 
-   static TextStyle styleSemiBold20 = TextStyle(
+  static TextStyle styleSemiBold20 = TextStyle(
     fontSize: getResponsiveFontSize(fontsize: 20),
     fontWeight: FontWeight.w600,
     fontFamily: fontFamily,
