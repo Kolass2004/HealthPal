@@ -14,11 +14,21 @@ class SplashViewBody extends StatefulWidget {
 }
 
 class _SplashViewBodyState extends State<SplashViewBody> {
+  bool _isVisible = false;
+
   @override
   void initState() {
     super.initState();
+
+    // Trigger fade-in animation
+    Timer(const Duration(milliseconds: 800), () {
+      setState(() {
+        _isVisible = true;
+      });
+    });
+
     // Delay of 3 seconds before navigating to the next page
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       GoRouter.of(context).pushReplacement(AppRouter.onBoardingView);
     });
   }
@@ -34,18 +44,22 @@ class _SplashViewBodyState extends State<SplashViewBody> {
           fit: BoxFit.fill,
         ),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          SvgPicture.asset(
-            Assets.assetsLogoWhite,
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          const LogoText(),
-        ],
+      child: AnimatedOpacity(
+        opacity: _isVisible ? 1.0 : 0.0, // Fade in when _isVisible is true
+        duration: const Duration(milliseconds: 1500), // Animation duration
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SvgPicture.asset(
+              Assets.assetsLogoWhite,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            const LogoText(),
+          ],
+        ),
       ),
     );
   }
