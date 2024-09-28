@@ -79,7 +79,9 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                       ? CustomButton(
                           title: "Done",
                           onPressed: () {
-                            GoRouter.of(context).push(AppRouter.loginView);
+                            GoRouter.of(context).push(
+                              AppRouter.signInView,
+                            );
                           },
                         )
                       : CustomButton(

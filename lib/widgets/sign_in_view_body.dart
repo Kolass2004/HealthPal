@@ -119,7 +119,7 @@ class SignInViewBody extends StatelessWidget {
             text: "Do you have an account yet?",
             page: "Sign Up",
             onPressed: () {
-              GoRouter.of(context).push(AppRouter.loginView)
+              GoRouter.of(context).push(AppRouter.signUpView);
             },
           ),
           const SizedBox(
