@@ -17,12 +17,12 @@ class OnBoardingWidget extends StatelessWidget {
         Image.asset(
           onBoardingModel.img,
           width: width,
-          height: height * .58,
+          height: height * .60,
           fit: BoxFit.fill,
         ),
         Container(
           color: AppColors.secondaryColor,
-          height: height * 0.21,
+          height: height * 0.20,
           child: Column(
             children: [
               const Expanded(
