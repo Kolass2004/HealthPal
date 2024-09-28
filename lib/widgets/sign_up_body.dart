@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -99,6 +100,14 @@ class _SignUpBodyState extends State<SignUpBody> {
                       "Welcome! Your account is ready. Start exploring now.",
                       ToastificationType.success,
                       context);
+                  addUser(
+                    userName: nameController.text,
+                    email: emailController.text,
+                    password: passwordController.text,
+                  );
+                  emailController.clear();
+                  nameController.clear();
+                  passwordController.clear();
                   GoRouter.of(context).pop();
                 }
                 if (state is SignUpFailure) {
@@ -108,6 +117,9 @@ class _SignUpBodyState extends State<SignUpBody> {
                     ToastificationType.error,
                     context,
                   );
+                  emailController.clear();
+                  nameController.clear();
+                  passwordController.clear();
                 }
               },
               builder: (context, state) {
@@ -192,13 +204,24 @@ class _SignUpBodyState extends State<SignUpBody> {
       );
 
       autovalidateMode = AutovalidateMode.disabled;
-      emailController.clear();
-      nameController.clear();
-      passwordController.clear();
+
       setState(() {});
     } else {
       autovalidateMode = AutovalidateMode.always;
       setState(() {});
     }
+  }
+
+  Future<void> addUser({
+    required String userName,
+    required String email,
+    required String password,
+  }) {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    return users.doc(email).set({
+      'userName': userName,
+      'email': email,
+      'password': password,
+    });
   }
 }

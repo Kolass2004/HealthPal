@@ -57,6 +57,7 @@ class TextFieldsForm extends StatelessWidget {
           ),
           CustomTextField(
             controller: passwordController,
+            isObscure: true,
             textFieldModel: TextFieldModel(
               hint: "Password",
               icon: Assets.assetsLockIcon,
