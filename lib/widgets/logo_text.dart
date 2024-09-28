@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:health_pal/utils/app_colors.dart';
 import 'package:health_pal/utils/app_styles.dart';
+import 'package:health_pal/utils/constants.dart';
 
 class LogoText extends StatelessWidget {
-  const LogoText({super.key});
+  const LogoText({super.key, this.color1, this.color2});
+
+  final Color? color1, color2;
 
   @override
   Widget build(BuildContext context) {
@@ -14,13 +17,15 @@ class LogoText extends StatelessWidget {
           TextSpan(
             text: "Health",
             style: Appstyles.styleRegular20.copyWith(
-              color: AppColors.logoTextColor,
+              color: color1 ?? AppColors.logoTextColor,
+              fontFamily: logoFontFamily,
             ),
           ),
           TextSpan(
             text: "Pal",
             style: Appstyles.styleRegular20.copyWith(
-              color: AppColors.secondaryColor,
+              color: color2 ?? AppColors.secondaryColor,
+              fontFamily: logoFontFamily,
             ),
           ),
         ],

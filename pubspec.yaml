@@ -68,6 +68,9 @@ flutter:
     - family: Inter
       fonts:
         - asset: assets/fonts/Inter_18pt-Regular.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

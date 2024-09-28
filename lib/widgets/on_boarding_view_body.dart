@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:health_pal/models/on_boarding_model.dart';
 import 'package:health_pal/utils/app_colors.dart';
+import 'package:health_pal/utils/app_router.dart';
 import 'package:health_pal/utils/app_styles.dart';
 import 'package:health_pal/utils/assets.dart';
 import 'package:health_pal/widgets/custom_button.dart';
@@ -76,7 +78,9 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                   child: onLastPage
                       ? CustomButton(
                           title: "Done",
-                          onPressed: () {},
+                          onPressed: () {
+                            GoRouter.of(context).push(AppRouter.loginView);
+                          },
                         )
                       : CustomButton(
                           title: "Next",
