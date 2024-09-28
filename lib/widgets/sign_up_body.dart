@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:health_pal/utils/app_colors.dart';
 import 'package:health_pal/utils/app_styles.dart';
 import 'package:health_pal/utils/assets.dart';
+import 'package:health_pal/utils/show_toast.dart';
 import 'package:health_pal/widgets/custom_button.dart';
 import 'package:health_pal/widgets/logo_text.dart';
 import 'package:health_pal/widgets/or_line_widget.dart';
@@ -66,7 +67,10 @@ class SignUpBody extends StatelessWidget {
               height: 48,
               child: CustomButton(
                 title: "Create Account",
-                onPressed: () {},
+                onPressed: () {
+                  showToast(context, "Account Created Successfully!",
+                      "Welcome aboard! Your account has been created. Start exploring all the features we have to offer.");
+                },
               ),
             ),
           ),

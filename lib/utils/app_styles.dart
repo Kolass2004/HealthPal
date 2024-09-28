@@ -10,6 +10,12 @@ abstract class Appstyles {
     fontFamily: fontFamily,
   );
 
+  static TextStyle styleRegular12 = TextStyle(
+    fontSize: getResponsiveFontSize(fontsize: 12),
+    fontWeight: FontWeight.normal,
+    fontFamily: fontFamily,
+  );
+
   static TextStyle styleMedium14 = TextStyle(
     fontSize: getResponsiveFontSize(fontsize: 14),
     fontWeight: FontWeight.w500,
