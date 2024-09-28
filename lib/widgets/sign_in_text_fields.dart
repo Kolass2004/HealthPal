@@ -37,6 +37,7 @@ class SignInTextFields extends StatelessWidget {
           ),
           CustomTextField(
             controller: passwordController,
+            isObscure: true,
             textFieldModel: TextFieldModel(
               hint: "Password",
               validator: (value) {
