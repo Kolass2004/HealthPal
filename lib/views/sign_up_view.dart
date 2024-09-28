@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:health_pal/cubits/cubit/sign_up_cubit.dart';
+import 'package:health_pal/cubits/sign_up_cubit/sign_up_cubit.dart';
 import 'package:health_pal/utils/app_colors.dart';
 import 'package:health_pal/widgets/sign_up_body.dart';
 
