@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:health_pal/utils/app_colors.dart';
-import 'package:health_pal/utils/app_router.dart';
 import 'package:health_pal/utils/app_styles.dart';
 import 'package:health_pal/utils/assets.dart';
 import 'package:health_pal/widgets/custom_button.dart';

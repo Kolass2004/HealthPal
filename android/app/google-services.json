@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "989284168769",
+    "project_id": "healthpal-fbb41",
+    "storage_bucket": "healthpal-fbb41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989284168769:android:c0586e4e11f245dd7c02c0",
+        "android_client_info": {
+          "package_name": "com.example.health_pal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8fFF9BXRIalF9SqwCm638KVXoNogiTWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

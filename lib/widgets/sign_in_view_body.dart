@@ -102,14 +102,19 @@ class SignInViewBody extends StatelessWidget {
           const SizedBox(
             height: 23,
           ),
-          InkWell(
-            onTap: () {},
-            child: Text(
-              "Forgot password? ",
-              style: Appstyles.styleMedium14.copyWith(
-                color: const Color(0xff1C64F2),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 70),
+            child: Ink(
+              child: InkWell(
+                onTap: () {},
+                child: Text(
+                  "Forgot password? ",
+                  style: Appstyles.styleMedium14.copyWith(
+                    color: const Color(0xff1C64F2),
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
-              textAlign: TextAlign.center,
             ),
           ),
           const SizedBox(
