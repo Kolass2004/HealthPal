@@ -22,6 +22,8 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.sizeOf(context).height;
+    var width = MediaQuery.sizeOf(context).width;
     return Stack(
       children: [
         PageView(
@@ -58,67 +60,76 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             ),
           ],
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 39.5),
-              child: onLastPage
-                  ? CustomButton(
-                      title: "Done",
-                      onPressed: () {},
-                    )
-                  : CustomButton(
-                      title: "Next",
-                      onPressed: () {
-                        pageController.nextPage(
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.easeIn,
-                        );
-                      },
-                    ),
-            ),
-            const SizedBox(
-              height: 28.5,
-            ),
-            Center(
-              child: SmoothPageIndicator(
-                controller: pageController,
-                count: 3,
-                effect: const ExpandingDotsEffect(
-                  dotColor: Color(0xff9B9B9B),
-                  activeDotColor: Color(0xff26232F),
-                  dotHeight: 8,
-                  dotWidth: 8,
-                  expansionFactor: 4,
+        Positioned(
+          bottom: 0,
+          child: SizedBox(
+            height: height * .19,
+            width: width,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Expanded(
+                  child: SizedBox(),
                 ),
-              ),
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            Center(
-              child: Tapper(
-                onTap: () {
-                  pageController.jumpToPage(2);
-                },
-                borderRadius: BorderRadius.circular(18),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    "Skip",
-                    style: Appstyles.styleRegular14.copyWith(
-                      color: AppColors.grey500,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 39.5),
+                  child: onLastPage
+                      ? CustomButton(
+                          title: "Done",
+                          onPressed: () {},
+                        )
+                      : CustomButton(
+                          title: "Next",
+                          onPressed: () {
+                            pageController.nextPage(
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.easeIn,
+                            );
+                          },
+                        ),
+                ),
+                const Expanded(
+                  child: SizedBox(),
+                ),
+                Center(
+                  child: SmoothPageIndicator(
+                    controller: pageController,
+                    count: 3,
+                    effect: const ExpandingDotsEffect(
+                      dotColor: Color(0xff9B9B9B),
+                      activeDotColor: Color(0xff26232F),
+                      dotHeight: 8,
+                      dotWidth: 8,
+                      expansionFactor: 4,
                     ),
                   ),
                 ),
-              ),
+                const Expanded(
+                  child: SizedBox(),
+                ),
+                Center(
+                  child: Tapper(
+                    onTap: () {
+                      pageController.jumpToPage(2);
+                    },
+                    borderRadius: BorderRadius.circular(18),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        "Skip",
+                        style: Appstyles.styleRegular14.copyWith(
+                          color: AppColors.grey500,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const Expanded(
+                  child: SizedBox(),
+                ),
+              ],
             ),
-            const SizedBox(
-              height: 32,
-            ),
-          ],
+          ),
         )
       ],
     );

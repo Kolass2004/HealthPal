@@ -1,8 +1,16 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:health_pal/utils/app_router.dart';
 
 void main() {
-  runApp(const HealthPal());
+  runApp(
+    DevicePreview(
+      enabled: false,
+      builder: (context) {
+        return const HealthPal();
+      },
+    ),
+  );
 }
 
 class HealthPal extends StatelessWidget {
@@ -10,9 +18,11 @@ class HealthPal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp.router(
+    return MaterialApp.router(
       routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
     );
   }
 }

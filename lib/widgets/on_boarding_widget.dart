@@ -11,52 +11,54 @@ class OnBoardingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
+    var height = MediaQuery.sizeOf(context).height;
     return Column(
       children: [
-        Expanded(
-          flex: 5,
-          child: Image.asset(
-            onBoardingModel.img,
-            width: width,
-            fit: BoxFit.fill,
-          ),
+        Image.asset(
+          onBoardingModel.img,
+          width: width,
+          height: height * .58,
+          fit: BoxFit.fill,
         ),
-        Expanded(
-          flex: 3,
-          child: Container(
-            color: AppColors.secondaryColor,
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 28,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.5),
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Text(
-                      onBoardingModel.title,
-                      style: Appstyles.styleBold18.copyWith(
-                        color: AppColors.primaryColor2,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 39.5),
+        Container(
+          color: AppColors.secondaryColor,
+          height: height * 0.21,
+          child: Column(
+            children: [
+              const Expanded(
+                flex: 1,
+                child: SizedBox(),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.5),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
                   child: Text(
-                    onBoardingModel.subTitle,
-                    style: Appstyles.styleRegular14.copyWith(
-                      color: const Color(0xff6B7280),
+                    onBoardingModel.title,
+                    style: Appstyles.styleBold18.copyWith(
+                      color: AppColors.primaryColor2,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: width * 0.025),
+                child: Text(
+                  onBoardingModel.subTitle,
+                  style: Appstyles.styleRegular14.copyWith(
+                    color: const Color(0xff6B7280),
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const Expanded(
+                flex: 1,
+                child: SizedBox(),
+              ),
+            ],
           ),
         )
       ],
