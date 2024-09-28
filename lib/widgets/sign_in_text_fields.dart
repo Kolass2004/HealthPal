@@ -6,7 +6,11 @@ import 'package:health_pal/widgets/custom_text_field.dart';
 class SignInTextFields extends StatelessWidget {
   const SignInTextFields({
     super.key,
+    required this.passwordController,
+    required this.emailController,
   });
+
+  final TextEditingController emailController, passwordController;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +19,16 @@ class SignInTextFields extends StatelessWidget {
       child: Column(
         children: [
           CustomTextField(
-            controller: TextEditingController(),
+            controller: emailController,
             textFieldModel: TextFieldModel(
               hint: "Your Email",
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "This field is required";
+                } else {
+                  return null;
+                }
+              },
               icon: Assets.assetsEmailIcon,
             ),
           ),
@@ -25,9 +36,16 @@ class SignInTextFields extends StatelessWidget {
             height: 20,
           ),
           CustomTextField(
-            controller: TextEditingController(),
+            controller: passwordController,
             textFieldModel: TextFieldModel(
               hint: "Password",
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "This field is required";
+                } else {
+                  return null;
+                }
+              },
               icon: Assets.assetsLockIcon,
             ),
           ),
