@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:health_pal/cubits/cubit/sign_up_cubit.dart';
 import 'package:health_pal/utils/app_colors.dart';
 import 'package:health_pal/widgets/sign_up_body.dart';
 
@@ -7,10 +9,13 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColors.secondaryColor,
-        body: SignUpBody(),
+    return SafeArea(
+      child: BlocProvider(
+        create: (context) => SignUpCubit(),
+        child: const Scaffold(
+          backgroundColor: AppColors.secondaryColor,
+          body: SignUpBody(),
+        ),
       ),
     );
   }

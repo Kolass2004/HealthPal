@@ -5,13 +5,19 @@ import 'package:health_pal/utils/app_colors.dart';
 import 'package:health_pal/utils/app_styles.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, required this.textFieldModel});
+  const CustomTextField({
+    super.key,
+    required this.textFieldModel,
+    required this.controller,
+  });
 
   final TextFieldModel textFieldModel;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       style: Appstyles.styleRegular14.copyWith(
         color: AppColors.primaryColor,
       ),

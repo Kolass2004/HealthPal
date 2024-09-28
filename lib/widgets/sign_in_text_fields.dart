@@ -15,6 +15,7 @@ class SignInTextFields extends StatelessWidget {
       child: Column(
         children: [
           CustomTextField(
+            controller: TextEditingController(),
             textFieldModel: TextFieldModel(
               hint: "Your Email",
               icon: Assets.assetsEmailIcon,
@@ -24,6 +25,7 @@ class SignInTextFields extends StatelessWidget {
             height: 20,
           ),
           CustomTextField(
+            controller: TextEditingController(),
             textFieldModel: TextFieldModel(
               hint: "Password",
               icon: Assets.assetsLockIcon,

@@ -4,19 +4,21 @@ import 'package:health_pal/utils/app_styles.dart';
 import 'package:toastification/toastification.dart';
 
 void showToast(
-  BuildContext context,
   String title,
-  subtitle,
+  String subtitle,
+  ToastificationType type,
+  BuildContext context,
 ) {
   toastification.show(
-    context: context, // optional if you use ToastificationWrapper
+    context: context,
     title: Text(
       title,
       style: Appstyles.styleMedium14.copyWith(
         color: AppColors.primaryColor,
       ),
     ),
-    type: ToastificationType.success,
+    style: ToastificationStyle.minimal,
+    type: type,
     description: Text(
       subtitle,
       style: Appstyles.styleRegular12.copyWith(
