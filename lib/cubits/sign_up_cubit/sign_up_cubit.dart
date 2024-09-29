@@ -18,6 +18,7 @@ class SignUpCubit extends Cubit<SignUpState> {
       );
       emit(SignUpSuccess());
     } on FirebaseAuthException catch (e) {
+      print(e.code);
       if (e.code == 'weak-password') {
         emit(
           SignUpFailure(
@@ -32,6 +33,13 @@ class SignUpCubit extends Cubit<SignUpState> {
             titleMessage: "Email Issue",
             descriptionMessage: "Try logging in or use a different email.",
           ),
+        );
+      } else if (e.code == "email-already-in-use") {
+        emit(
+          SignUpFailure(
+              titleMessage: "Email Already Registered",
+              descriptionMessage:
+                  "The email is already in use; please choose another."),
         );
       }
     } catch (e) {
