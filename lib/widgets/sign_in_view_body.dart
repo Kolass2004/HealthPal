@@ -92,7 +92,11 @@ class _SignInViewBodyState extends State<SignInViewBody> {
             BlocConsumer<SignInCubit, SignInState>(
               listener: (context, state) {
                 if (state is SignInSuccess) {
-                  GoRouter.of(context).push(AppRouter.homeView);
+                  if (state.role == "user") {
+                    GoRouter.of(context).push(AppRouter.homeView);
+                  } else if (state.role == "admin") {
+                    GoRouter.of(context).push(AppRouter.adminView);
+                  }
                 }
                 if (state is SignInFailure) {
                   showToast(

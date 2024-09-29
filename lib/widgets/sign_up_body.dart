@@ -222,6 +222,7 @@ class _SignUpBodyState extends State<SignUpBody> {
       'userName': userName,
       'email': email,
       'password': password,
+      'role': "user",
     });
   }
 }

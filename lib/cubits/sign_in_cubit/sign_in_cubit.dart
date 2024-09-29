@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 
@@ -18,7 +19,8 @@ class SignInCubit extends Cubit<SignInState> {
         email: email,
         password: password,
       );
-      emit(SignInSuccess());
+      String role = await getUserRole(email, password);
+      emit(SignInSuccess(role: role));
     } on FirebaseAuthException catch (e) {
       if (e.code == "invalid-email") {
         emit(
@@ -43,5 +45,14 @@ class SignInCubit extends Cubit<SignInState> {
         ),
       );
     }
+  }
+
+  Future<String> getUserRole(String email, String password) async {
+    DocumentSnapshot userDoc =
+        await FirebaseFirestore.instance.collection('users').doc(email).get();
+
+    String role = userDoc['role'];
+
+    return role;
   }
 }
