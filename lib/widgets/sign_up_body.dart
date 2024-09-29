@@ -223,6 +223,7 @@ class _SignUpBodyState extends State<SignUpBody> {
       'email': email,
       'password': password,
       'role': "user",
+      'status': "waiting",
     });
   }
 }

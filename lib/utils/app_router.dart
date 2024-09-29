@@ -96,9 +96,12 @@ abstract class AppRouter {
       GoRoute(
         path: homeView,
         pageBuilder: (context, state) {
+          final String userId = state.extra as String;
           return CustomTransitionPage(
             key: state.pageKey,
-            child: const HomeView(),
+            child: HomeView(
+              userId: userId,
+            ),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
               const beginOffset = Offset(1.0, 0.0); // Slide in from the right

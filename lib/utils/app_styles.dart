@@ -21,6 +21,11 @@ abstract class Appstyles {
     fontWeight: FontWeight.w500,
     fontFamily: fontFamily,
   );
+  static TextStyle styleSemiBold14 = TextStyle(
+    fontSize: getResponsiveFontSize(fontsize: 14),
+    fontWeight: FontWeight.w600,
+    fontFamily: fontFamily,
+  );
 
   static TextStyle styleRegular20 = TextStyle(
     fontSize: getResponsiveFontSize(fontsize: 20),
@@ -37,6 +42,11 @@ abstract class Appstyles {
   static TextStyle styleMedium16 = TextStyle(
     fontSize: getResponsiveFontSize(fontsize: 16),
     fontWeight: FontWeight.w500,
+    fontFamily: fontFamily,
+  );
+  static TextStyle styleBold16 = TextStyle(
+    fontSize: getResponsiveFontSize(fontsize: 16),
+    fontWeight: FontWeight.bold,
     fontFamily: fontFamily,
   );
 

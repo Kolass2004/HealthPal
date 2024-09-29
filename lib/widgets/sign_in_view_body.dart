@@ -93,10 +93,15 @@ class _SignInViewBodyState extends State<SignInViewBody> {
               listener: (context, state) {
                 if (state is SignInSuccess) {
                   if (state.role == "user") {
-                    GoRouter.of(context).push(AppRouter.homeView);
+                    GoRouter.of(context)
+                        .push(AppRouter.homeView, extra: emailController.text);
                   } else if (state.role == "admin") {
                     GoRouter.of(context).push(AppRouter.adminView);
                   }
+
+                  emailController.clear();
+                  passwordController.clear();
+                  FocusScope.of(context).unfocus();
                 }
                 if (state is SignInFailure) {
                   showToast(
@@ -105,6 +110,9 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     ToastificationType.error,
                     context,
                   );
+
+                  emailController.clear();
+                  passwordController.clear();
                 }
               },
               builder: (context, state) {
@@ -206,8 +214,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
         password: passwordController.text,
       );
       autovalidateMode = AutovalidateMode.disabled;
-      emailController.clear();
-      passwordController.clear();
+
       setState(() {});
     } else {
       autovalidateMode = AutovalidateMode.always;
